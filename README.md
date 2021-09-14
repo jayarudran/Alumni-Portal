@@ -1,4 +1,4 @@
-# Alumni Portal
+# Alumni Portal (ongoing project)
 
 A social networking platform for current students and alums of Primus Public School .
 

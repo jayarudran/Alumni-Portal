@@ -3,12 +3,13 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const firebaseConfig = {
-    apiKey: process.env.API_KEY,
-    authDomain: process.env.AUTH_DOMAIN,
-    projectId: process.env.PROJECT_ID,
-    storageBucket: "alumni-portal-316308.appspot.com",
-    messagingSenderId: process.env.MESSAGING_SENDER_ID,
-    appId:process.env.APP_ID,
+    apiKey: "AIzaSyBIvspywExiLJFvspK0hSE_Wre-9_nXqDQ",
+    authDomain: "alma-mater-323208.firebaseapp.com",
+    projectId: "alma-mater-323208",
+    storageBucket: "alma-mater-323208.appspot.com",
+    messagingSenderId: "651941001502",
+    appId: "1:651941001502:web:821aa0b5b3b0ead765f10f",
+    measurementId: "G-W0EWKT6GD4",
 };
 
 const app = firebase.initializeApp(firebaseConfig);
