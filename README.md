@@ -1,8 +1,8 @@
-# Alumni Portal (opensource project)
+# Alumni Portal (Opensource Project)
 
 A social networking platform for current students and alums of Primus Public School .
 
-### Steps to run locally
+### Setting Up Project
 
 -   Clone the repo with `git clone https://github.com/RheaAdh/Alumni-Portal.git`
 -   Then from root/api run `npm i && npm start`
