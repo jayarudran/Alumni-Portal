@@ -56,7 +56,7 @@ const Comments = ({ post_id, owner }) => {
                     </div>
 
                     <div className="comment-right">
-                        <b>{comment.owner.username}</b>
+                        <b><a href={`/profile/${comment.owner.username}`}>{comment.owner.username}</a></b>
                         <div>{comment.answer}</div>
                     </div>
                 </div>
