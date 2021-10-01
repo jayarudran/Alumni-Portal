@@ -16,8 +16,8 @@ module.exports = async (req, res) => {
         });
         await newpost.save();
 
-	newpost = await Post.findOne({_id: newpost.id})
-		.populate("owner");
+        newpost = await Post.findOne({_id: newpost.id})
+            .populate("owner");
         return res.send({ success: true, data: newpost });
     } catch (err) {
         console.log("err:");
