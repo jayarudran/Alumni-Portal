@@ -14,7 +14,10 @@ module.exports = async (req, res) => {
         });
         console.log("newpost! :non admin");
         await newpost.save();
-        return res.send({ success: true, data: "added post" });
+
+        newpost = await Post.findOne({_id: newpost.id})
+            .populate("owner");
+        return res.send({ success: true, data: newpost });
     } catch (err) {
         console.log("err:");
         console.log(err);
