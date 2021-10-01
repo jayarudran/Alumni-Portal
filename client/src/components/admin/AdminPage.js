@@ -1,6 +1,5 @@
 import React from "react";
 import Nav from "../Nav";
-import CreatePost from "../CreatePost";
 import PageType from "../PageType";
 import VerifyUsers from "../VerifyUsers";
 const AdminPage = () => {
@@ -11,7 +10,6 @@ const AdminPage = () => {
             </div>
             <div className="middle-feed">
                 <div className="stick">Admin Only</div>
-                <CreatePost isAdmin={true} />
                 <PageType pageType={"getadminposts"} />
             </div>
             <div className="right-feed">

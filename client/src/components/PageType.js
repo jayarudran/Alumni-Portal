@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
+import CreatePost from "./CreatePost";
 import Post from "./Post";
 import { TOKEN_ID } from "../utils/constants";
 const PageType = ({ pageType, userid }) => {
@@ -76,6 +77,15 @@ const PageType = ({ pageType, userid }) => {
             fetchOthersPosts();
         }
     }, []);
+    const addPost = (x) => {
+        console.log(x);
+        let newposts = [x];
+        for (let i = 0; i < posts.length; i++) {
+            console.log(posts[i]);
+            newposts.push(posts[i]);
+        }
+        setPosts(newposts);
+    };
     const deletePost = (x) => {
         const newposts = posts.filter((post) => post._id !== x);
         console.log("deleted");
@@ -109,22 +119,25 @@ const PageType = ({ pageType, userid }) => {
     };
     return (
         <div>
-            {posts.map((post) => (
-                <Post
-                    imageLink={post.imageLink}
-                    email={post.email}
-                    question={post.question}
-                    post_id={post._id}
-                    deletePost={deletePost}
-                    bookmarkedArray={post.bookmarked}
-                    likedArray={post.liked}
-                    editPostBookmark={editPostBookmark}
-                    editPostLike={editPostLike}
-                    owner={post.owner}
-                    createdAt={post.createdAt}
-                    currentDate={post.currentDate}
-                />
-            ))}
+            <CreatePost isAdmin={pageType === "getadminposts"} addPost={addPost} /> 
+            <div>
+                {posts.map((post) => (
+                    <Post
+                        imageLink={post.imageLink}
+                        email={post.email}
+                        question={post.question}
+                        post_id={post._id}
+                        deletePost={deletePost}
+                        bookmarkedArray={post.bookmarked}
+                        likedArray={post.liked}
+                        editPostBookmark={editPostBookmark}
+                        editPostLike={editPostLike}
+                        owner={post.owner}
+                        createdAt={post.createdAt}
+                        currentDate={post.currentDate}
+                    />
+                ))}
+            </div>
         </div>
     );
 };

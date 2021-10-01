@@ -6,7 +6,10 @@ import { storeFile } from "../utils/utilities";
 import { useAuth } from "../context/AuthContext";
 import { TOKEN_ID } from "../utils/constants";
 
-const CreatePost = ({ isAdmin }) => {
+const CreatePost = ({
+	isAdmin,
+	addPost
+}) => {
     const [question, setQuestion] = useState("");
     const auth = useAuth();
     const postFileRef = useRef(null);
@@ -46,6 +49,7 @@ const CreatePost = ({ isAdmin }) => {
                 if (result.data.success) {
                     setLoading(false);
                     console.log(result.data);
+                    addPost(result.data.data);
                 } else {
                     console.log("oops");
                 }
