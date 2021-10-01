@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
-import {TOKEN_ID} from "../utils/constants"
-const Individual = ({ user }) => {
+import { TOKEN_ID } from "../utils/constants";
+const Individual = ({ user, DeleteUser }) => {
     const [verified, setVerified] = useState(user.isVerifiedByAdmin);
     const auth = useAuth();
 
@@ -65,6 +65,9 @@ const Individual = ({ user }) => {
                     Accept
                 </button>
             )}
+            <button className="btn1" onClick={() => DeleteUser(user._id)}>
+                Delete
+            </button>
         </div>
     );
 };
