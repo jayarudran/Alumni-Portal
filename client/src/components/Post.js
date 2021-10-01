@@ -174,15 +174,15 @@ const Post = ({
 
             <div className="post-me">
                 {owner.profileImage !== "" ? (
-                    <img src={owner.profileImage} />
+                    <a href={`/profile/${owner.username}`}><img src={owner.profileImage} /></a>
                 ) : (
-                    <img src={MyPhoto} />
+                    <a href={`/profile/${owner.username}`}><img src={MyPhoto} /></a>
                 )}
             </div>
 
             <div class="post-body ">
                 <h6>
-                    {owner.username} . {minsAgo(currentDate)}
+                    <a href={`/profile/${owner.username}`}>{owner.username}</a> . {minsAgo(currentDate)}
                 </h6>
                 <div className="question">{question}</div>
 
