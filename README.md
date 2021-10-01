@@ -1,4 +1,4 @@
-# Alumni Portal (ongoing project)
+# Alumni Portal (opensource project)
 
 A social networking platform for current students and alums of Primus Public School .
 
@@ -16,3 +16,5 @@ A social networking platform for current students and alums of Primus Public Sch
 -   MongoDB - Database
 -   Socket.io - Chat Feature
 -   Sass - for styling
+
+### Feel free to contribute
