@@ -4,6 +4,7 @@ import Nav from "../Nav";
 import AdminPosts from "../admin/AdminPosts";
 import MyPhoto from "../../images/me.jpg";
 import { useParams } from "react-router-dom";
+
 const RandomPost = () => {
     const { postid } = useParams();
     return (

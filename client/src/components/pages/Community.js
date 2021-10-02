@@ -6,6 +6,7 @@ import UserCard from "../UserCard";
 import AdminPosts from "../admin/AdminPosts";
 import { useAuth } from "../../context/AuthContext";
 import { TOKEN_ID } from "../../utils/constants";
+
 const Community = () => {
     const auth = useAuth();
     //stores all users

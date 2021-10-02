@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
         // console.log(posts);
         const userposts = [];
         for (let i = 0; i < posts.length; i++) {
-            console.log("ok:",posts[i].owner._id);
+            console.log("ok:", posts[i].owner._id);
             console.log(req.params.userid);
             if (posts[i].owner._id == req.params.userid) {
                 userposts.push(posts[i]);

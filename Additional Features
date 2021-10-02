@@ -1,0 +1,10 @@
+Additionals 
+
+-Feed
+    -add tags to post
+-Saved
+    -search post by tags
+-Hashtag(in saved and feed)
+    -make hashtag model
+    -say #x
+    -make array of postid's who belong to #x

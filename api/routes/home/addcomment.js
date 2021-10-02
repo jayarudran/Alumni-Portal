@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
             postid: postid,
             answer: commenttext,
             owner: userid,
-        });
+        }).populate("owner");
         console.log("newcomment");
         await newcomment.save();
         return res.send({

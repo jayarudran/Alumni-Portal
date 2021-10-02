@@ -4,6 +4,7 @@ import MyPhoto from "../images/me.jpg";
 import CreateComment from "./CreateComment";
 import { useAuth } from "../context/AuthContext";
 import { TOKEN_ID } from "../utils/constants";
+
 const Comments = ({ post_id, owner }) => {
     const [comments, setComments] = useState([]);
     const auth = useAuth();
@@ -11,6 +12,7 @@ const Comments = ({ post_id, owner }) => {
     const addComment = (x) => {
         setComments([...comments, x]);
     };
+
     useEffect(() => {
         axios({
             method: "post",
@@ -24,15 +26,11 @@ const Comments = ({ post_id, owner }) => {
             },
         })
             .then((result) => {
-                console.log("pls work");
                 if (result.data.success) {
                     setComments(...comments, result.data.data);
-                } else {
-                    console.log("ayo");
-                }
+                } 
             })
             .catch((err) => {
-                console.log("err:");
                 console.log(err);
             });
 

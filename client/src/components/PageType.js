@@ -5,7 +5,6 @@ import CreatePost from "./CreatePost";
 import Post from "./Post";
 import { TOKEN_ID } from "../utils/constants";
 const PageType = ({ pageType, userid }) => {
-    console.log("pls worrrrrrrrrrrrrrrrrrrk", userid);
     const auth = useAuth();
     const [posts, setPosts] = useState([]);
     const [user, setUser] = useState(null);
@@ -16,8 +15,6 @@ const PageType = ({ pageType, userid }) => {
     }, []);
     useEffect(() => {
         const fetchPageType = () => {
-            console.log("in effect");
-            console.log(pageType + "!!!!!");
             axios({
                 method: "get",
                 url: `/api/home/${pageType}`,
@@ -36,9 +33,7 @@ const PageType = ({ pageType, userid }) => {
                     }
                 } else {
                     if (result.data.success) {
-                        console.log(posts);
                         setPosts(...posts, result.data.data);
-                        console.log("succccccccccccccc");
                     } else {
                     }
                 }
