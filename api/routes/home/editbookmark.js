@@ -9,9 +9,8 @@ module.exports = async (req, res) => {
         const { postid } = req.body;
         console.log(postid);
         let flag = 0;
-        const post = await Post.findOne({ _id: postid })
-            .populate("owner");
-       
+        const post = await Post.findOne({ _id: postid }).populate("owner");
+
         for (let i = 0; i < post.bookmarked.length; i++) {
             if (post.bookmarked[i] === req.user.email) {
                 flag = 1;

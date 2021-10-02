@@ -8,9 +8,8 @@ module.exports = async (req, res) => {
     try {
         const { postid } = req.body;
         let flag = 0;
-        const post = await Post.findOne({ _id: postid })
-            .populate("owner");
-  
+        const post = await Post.findOne({ _id: postid }).populate("owner");
+
         for (let i = 0; i < post.liked.length; i++) {
             if (post.liked[i] === req.user.email) {
                 flag = 1;

@@ -17,7 +17,6 @@ const Bookmarks = () => {
             </div>
             <div className="right-feed">
                 <AdminPosts />
-                {/* Add something else */}
             </div>
         </div>
     );

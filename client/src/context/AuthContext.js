@@ -18,8 +18,6 @@ export default function AuthProvider({ children }) {
 
     const GetTokenSetUser = () => {
         let tokenid = localStorage.getItem(TOKEN_ID);
-        console.log("ttttttttttttttttttt");
-        console.log(tokenid);
         if (tokenid && !user) {
             setLoading(true);
             axios({
@@ -32,16 +30,12 @@ export default function AuthProvider({ children }) {
                     setUser(result.data.data);
                     history.push(location);
                 } else {
-                    console.log(result.data.data);
                     history.push("/login");
                 }
             });
         }
     };
     useEffect(() => {
-        console.log(location.pathname);
-        console.log("user");
-        console.log(user);
         if (!user) {
             GetTokenSetUser();
         }

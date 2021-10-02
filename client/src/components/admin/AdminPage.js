@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "../Nav";
 import PageType from "../PageType";
 import VerifyUsers from "../VerifyUsers";
+
 const AdminPage = () => {
     return (
         <div className="feed">
