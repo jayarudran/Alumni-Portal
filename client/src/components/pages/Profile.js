@@ -31,10 +31,8 @@ const Profile = () => {
     const [house, setHouse] = useState('');
 
     const update = useForceUpdate();
-
-    const updateProfile = () => {
-        //need to update all input fields with value from db and then they can edit over that
-        // setCollege(auth.user.college);
+    useEffect(() => {
+        setCollege(auth.user.college);
         setGradYear(auth.user.gradYear);
         setCompany(auth.user.company);
         setPrevCompany(auth.user.prevCompany);
@@ -44,7 +42,7 @@ const Profile = () => {
         setLocation(auth.user.location);
         setHouse(auth.user.house);
         console.log(auth.user);
-    };
+    }, []);
 
     const handleUploadImage = async (e) => {
         e.preventDefault();
@@ -188,7 +186,8 @@ const Profile = () => {
                             <h3>Designation: {auth.user.designation}</h3>
                             <h3>Previous Company: {auth.user.prevCompany}</h3>
                             <h3>
-                                Previous Designation: {auth.user.prevDesignation}
+                                Previous Designation:{' '}
+                                {auth.user.prevDesignation}
                             </h3>
                             <h3>Years of Experience: {auth.user.yearsOfExp}</h3>
                             <h3>Location: {auth.user.location}</h3>
