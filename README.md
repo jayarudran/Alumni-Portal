@@ -3,9 +3,7 @@
 ![repo size](https://img.shields.io/github/repo-size/RheaAdh/Alumni-Portal)
 ![issues open](https://img.shields.io/github/issues/RheaAdh/Alumni-Portal)
 ![pull requests open](https://img.shields.io/github/issues-pr/RheaAdh/Alumni-Portal)
-
-<!-- ![license: MIT](https://img.shields.io/github/license/RheaAdh/Alumni-Portal) -->
-
+![license: MIT](https://img.shields.io/github/license/RheaAdh/Alumni-Portal)
 ![contributors](https://img.shields.io/github/contributors/RheaAdh/Alumni-Portal)
 ![watchers](https://badgen.net/github/watchers/RheaAdh/Alumni-Portal)
 ![stars](https://badgen.net/github/stars/RheaAdh/Alumni-Portal)
@@ -51,8 +49,8 @@ Please ⭐️ this repository and contribute by making a pull request!
 
 [![Stargazers over time](https://starchart.cc/RheaAdh/Alumni-Portal.svg)](https://starchart.cc/RheaAdh/Alumni-Portal)
 
-<!-- ## 📝 License
+## ©️ License
 
 Copyright © 2021 [Rhea Adhikari](https://github.com/RheaAdh).
 
-This project is [MIT](https://github.com/RheaAdh/Alumni-Portal/blob/master/LICENSE) licensed. -->
+This project is [MIT](https://github.com/RheaAdh/Alumni-Portal/blob/master/LICENSE) licensed.
