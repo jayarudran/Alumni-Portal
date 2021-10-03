@@ -21,6 +21,16 @@ A social networking platform for current students and alums of Primus Public Sch
 -   Then from root/client run `npm i && npm start`
 -   Then from root/socket run `npm i && npm start`
 
+### 👀 PS
+
+-   Frontend Pages present in `/client/components/pages` folder.
+-   SCSS file when changed make sure to use `Live sass compiler` extension to map it to its corresponding css else it will not reflect in the website.
+-   Style sheets present in `/client/styles`.
+-   Models present in `/api/models` folder.
+-   Middleware present in `/api/middleware` folder.
+-   Backend Routes present in `/api/routes` folder.
+-   You can directly register and login if you want to see the dashboard for now without verification for ease in development.
+
 ### ⚡ Features
 
 -   Feed
