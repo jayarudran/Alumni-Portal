@@ -33,7 +33,7 @@ const Login = () => {
             },
         }).then((result) => {
             if (result.data.success) {
-                auth?.login(result.data.user, result.data.token);
+                auth.login(result.data.user, result.data.token);
                 history.push("/");
             } else {
                 toast.error(result.data.data);
@@ -44,19 +44,18 @@ const Login = () => {
     };
 
     return (
-        <div className="register">
-            <Toaster position="top-left" reverseOrder={false} />
-            <div className="shade"></div>
-            <div className="overlay">
-                <div className="container">
-                    <div className="left-container">
+        <div className='register'>
+            <Toaster position='top-left' reverseOrder={false} />
+            <div className='shade'></div>
+            <div className='overlay'>
+                <div className='container'>
+                    <div className='left-container'>
                         <div
                             style={{
                                 color: "#FEC737",
                                 fontWeight: "bold",
                                 fontSize: "3rem",
-                            }}
-                        >
+                            }}>
                             <b> ALUMNI</b>
                         </div>
                         <div
@@ -64,8 +63,7 @@ const Login = () => {
                                 color: "white",
                                 fontWeight: "normal",
                                 fontSize: "3rem",
-                            }}
-                        >
+                            }}>
                             PORTAL
                         </div>
                         <hr></hr>
@@ -75,37 +73,35 @@ const Login = () => {
                                 fontWeight: "normal",
                                 fontFamily: "Roboto",
                                 fontSize: "1rem",
-                            }}
-                        >
+                            }}>
                             Welcome to Primus Almuni Portal
                         </div>
                         <div
                             style={{
                                 color: "white",
                                 fontWeight: "normal",
-                            }}
-                        >
+                            }}>
                             Let’s Connect!
                         </div>
                     </div>
-                    <div className="right-container">
+                    <div className='right-container'>
                         <form onSubmit={handleFormSubmit}>
                             <h2>Login</h2>
                             <div>
                                 <input
-                                    placeholder="Enter email"
-                                    type="text"
-                                    onChange={(e) => setEmail(e.target.value)}
-                                ></input>
+                                    placeholder='Enter email'
+                                    type='text'
+                                    onChange={(e) =>
+                                        setEmail(e.target.value)
+                                    }></input>
                             </div>
                             <div>
                                 <input
-                                    placeholder="Password"
-                                    type="password"
+                                    placeholder='Password'
+                                    type='password'
                                     onChange={(e) =>
                                         setPassword(e.target.value)
-                                    }
-                                ></input>
+                                    }></input>
                             </div>
                             {/* {err ? (
                                 <div
@@ -123,23 +119,23 @@ const Login = () => {
                                 style={{
                                     color: "blue",
                                     fontSize: "0.75rem",
-                                }}
-                            >
+                                }}>
                                 <a
-                                    href="/forgotpassword"
-                                    style={{ color: "grey" }}
-                                >
+                                    href='/forgotpassword'
+                                    style={{ color: "grey" }}>
                                     Forgot Password
                                 </a>
                             </div>
-                            <button type="submit">Login</button>
+                            <button type='submit'>Login</button>
                         </form>
                         <span style={{ color: "grey" }}>New user?</span>
                         <span>
                             <a
-                                href="/register"
-                                style={{ color: "#fec737", fontWeight: "bold" }}
-                            >
+                                href='/register'
+                                style={{
+                                    color: "#fec737",
+                                    fontWeight: "bold",
+                                }}>
                                 Sign up
                             </a>
                         </span>

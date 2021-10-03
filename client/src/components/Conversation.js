@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useState, useRef } from "react";
 import axios from "axios";
 import { io } from "socket.io-client";
 import { useAuth } from "../context/AuthContext";
-import {TOKEN_ID} from "../utils/constants"
+import { TOKEN_ID } from "../utils/constants";
 
 const Conversation = ({ convoid, user, currentUser }) => {
     const scrollRef = useRef();
@@ -11,10 +11,8 @@ const Conversation = ({ convoid, user, currentUser }) => {
     //currUser ->receiver
     const [message, setMessage] = useState("");
     const [messages, setMessages] = useState([]);
-    const auth = useAuth()
+    const auth = useAuth();
     const socket = useRef(io("ws://localhost:8900"));
-    
-
 
     useEffect(() => {
         console.log("userid" + user._id);
@@ -30,7 +28,7 @@ const Conversation = ({ convoid, user, currentUser }) => {
             url: `/api/convo/getmsgs/${convoid}`,
             headers: {
                 "Content-type": "application/json",
-                'x-auth-token': `${localStorage.getItem(TOKEN_ID)}`,
+                "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
             },
         })
             .then((result) => {
@@ -57,7 +55,7 @@ const Conversation = ({ convoid, user, currentUser }) => {
             },
             headers: {
                 "Content-type": "application/json",
-                'x-auth-token': `${localStorage.getItem(TOKEN_ID)}`,
+                "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
             },
         })
             .then((result) => {
@@ -71,12 +69,12 @@ const Conversation = ({ convoid, user, currentUser }) => {
             .catch((err) => console.log(err));
     };
     useEffect(() => {
-        scrollRef.current?.scrollIntoView({ behaviour: "smooth" });
+        scrollRef.current.scrollIntoView({ behaviour: "smooth" });
     }, [messages]);
     return (
         <div>
             <h1>{convoid}</h1>
-            <div className="chat-message" ref={scrollRef}>
+            <div className='chat-message' ref={scrollRef}>
                 {messages.length !== 0 ? (
                     messages.map((x) => <div>{x.text}</div>)
                 ) : (
@@ -85,13 +83,12 @@ const Conversation = ({ convoid, user, currentUser }) => {
             </div>
             <form>
                 <input
-                    type="text"
-                    name="chat"
-                    placeholder="Send text"
+                    type='text'
+                    name='chat'
+                    placeholder='Send text'
                     onChange={(e) => setMessage(e.target.value)}
-                    value={message}
-                ></input>
-                <button type="submit" onClick={handleMessageSubmit}>
+                    value={message}></input>
+                <button type='submit' onClick={handleMessageSubmit}>
                     Send
                 </button>
             </form>

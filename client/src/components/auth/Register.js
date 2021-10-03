@@ -6,7 +6,6 @@ import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
     const auth = useAuth();
-    
 
     const history = useHistory();
     const [username, setUsername] = useState("");
@@ -17,23 +16,24 @@ const Register = () => {
     // const [err, setErr] = useState("");
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        console.log("in submit");
         if (fullName == "") {
             toast.error("Please Enter your Name");
+            return;
         }
         if (username == "") {
-            // setErr("Please Enter your Name");
             toast.error("Please Enter your userame");
+            return;
         }
         const regex1 =
             /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$/;
+
         if (!regex1.test(String(username))) {
-            // setErr("Invalid Email");
             toast.error("Invalid Username");
+            return;
         }
         if (email == "") {
-            // setErr("Please Enter your Email");
             toast.error("Please Enter your Email");
+            return;
         }
         const re =
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -41,11 +41,13 @@ const Register = () => {
         if (!re.test(String(email).toLowerCase())) {
             // setErr("Invalid Email");
             toast.error("Invalid Email");
+            return;
         }
 
         if (password == "") {
             // setErr("Please Enter your Password");
             toast.error("Please Enter your Password");
+            return;
         }
         if (password.length < 8) {
             // setErr("try again(min length: 8)");
@@ -82,19 +84,18 @@ const Register = () => {
     };
 
     return (
-        <div className="register">
-            <Toaster position="top-left" reverseOrder={false} />
-            <div className="shade"></div>
-            <div className="overlay">
-                <div className="container">
-                    <div className="left-container">
+        <div className='register'>
+            <Toaster position='top-left' reverseOrder={false} />
+            <div className='shade'></div>
+            <div className='overlay'>
+                <div className='container'>
+                    <div className='left-container'>
                         <div
                             style={{
                                 color: "#FEC737",
                                 fontWeight: "bold",
                                 fontSize: "3rem",
-                            }}
-                        >
+                            }}>
                             <b> ALUMNI</b>
                         </div>
                         <div
@@ -102,8 +103,7 @@ const Register = () => {
                                 color: "white",
                                 fontWeight: "normal",
                                 fontSize: "3rem",
-                            }}
-                        >
+                            }}>
                             PORTAL
                         </div>
                         <hr></hr>
@@ -112,64 +112,59 @@ const Register = () => {
                                 color: "white",
                                 fontWeight: "normal",
                                 fontSize: "1rem",
-                            }}
-                        >
+                            }}>
                             Welcome to Primus Almuni Portal
                         </div>
                         <div
                             style={{
                                 color: "white",
                                 fontWeight: "normal",
-                            }}
-                        >
+                            }}>
                             Let’s Connect!
                         </div>
                     </div>
-                    <div className="right-container">
+                    <div className='right-container'>
                         <h2>Register</h2>
                         <form onSubmit={handleFormSubmit}>
                             <div>
                                 <input
-                                    placeholder="Full name"
-                                    type="text"
+                                    placeholder='Full name'
+                                    type='text'
                                     onChange={(e) =>
                                         setFullName(e.target.value)
-                                    }
-                                ></input>
+                                    }></input>
                             </div>
                             <div>
                                 <input
-                                    placeholder="Username(no space)"
-                                    type="text"
+                                    placeholder='Username(no space)'
+                                    type='text'
                                     onChange={(e) =>
                                         setUsername(e.target.value)
-                                    }
-                                ></input>
+                                    }></input>
                             </div>
                             <div>
                                 <input
-                                    placeholder="Email"
-                                    type="text"
-                                    onChange={(e) => setEmail(e.target.value)}
-                                ></input>
+                                    placeholder='Email'
+                                    type='text'
+                                    onChange={(e) =>
+                                        setEmail(e.target.value)
+                                    }></input>
                             </div>
                             <div>
                                 <input
-                                    placeholder="Password"
-                                    type="password"
+                                    placeholder='Password'
+                                    type='password'
                                     onChange={(e) =>
                                         setPassword(e.target.value)
-                                    }
-                                ></input>
+                                    }></input>
                             </div>
                             <div>
                                 <input
-                                    placeholder="Confirm Password"
-                                    type="password"
+                                    placeholder='Confirm Password'
+                                    type='password'
                                     onChange={(e) =>
                                         setConfirmPassword(e.target.value)
-                                    }
-                                ></input>
+                                    }></input>
                             </div>
                             {/* <div
                                 style={{
@@ -180,16 +175,18 @@ const Register = () => {
                             >
                                 {err}
                             </div> */}
-                            <button type="submit">Register</button>
+                            <button type='submit'>Register</button>
                         </form>
                         <span style={{ color: "grey" }}>
                             Already registered?
                         </span>
                         <span>
                             <a
-                                href="/login"
-                                style={{ color: "#fec737", fontWeight: "bold" }}
-                            >
+                                href='/login'
+                                style={{
+                                    color: "#fec737",
+                                    fontWeight: "bold",
+                                }}>
                                 Login
                             </a>
                         </span>
@@ -198,9 +195,11 @@ const Register = () => {
                         </span>
                         <span>
                             <a
-                                href="/verifyagain"
-                                style={{ color: "#fec737", fontWeight: "bold" }}
-                            >
+                                href='/verifyagain'
+                                style={{
+                                    color: "#fec737",
+                                    fontWeight: "bold",
+                                }}>
                                 Send Verification Link
                             </a>
                         </span>

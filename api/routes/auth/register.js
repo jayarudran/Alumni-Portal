@@ -5,7 +5,7 @@ const sendEmail = require("./email");
 
 module.exports = async (req, res) => {
     try {
-        const { username, email, password,fullName } = req.body;
+        const { username, email, password, fullName } = req.body;
 
         var user = await User.findOne({ email: email });
 
@@ -18,6 +18,7 @@ module.exports = async (req, res) => {
                 email: email,
                 password: hashpwd,
                 token: newtoken,
+                profileImage: "",
             });
             await user.save();
             sendEmail(newtoken, user, 2);

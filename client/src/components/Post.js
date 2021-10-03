@@ -143,17 +143,17 @@ const Post = ({
     };
 
     return (
-        <div class="post">
+        <div class='post'>
             <Modal
                 open={open}
                 onClose={() => {
                     setOpen(false);
-                }}
-            >
-                <div class="modal">
-                    <div className="modal-left">
-                        <div className="creator-img">
-                            {owner.profileImage != "" ? (
+                }}>
+                <div class='modal'>
+                    <div className='modal-left'>
+                        <div className='creator-img'>
+                            {console.log(owner.profileImage)}
+                            {owner.profileImage !== "" ? (
                                 <img src={owner.profileImage} />
                             ) : (
                                 <img src={MyPhoto} />
@@ -162,7 +162,7 @@ const Post = ({
                         {question}
                         <img src={imageLink}></img>
                     </div>
-                    <div className="modal-right">
+                    <div className='modal-right'>
                         <Comments
                             post_id={post_id}
                             email={email}
@@ -172,25 +172,30 @@ const Post = ({
                 </div>
             </Modal>
 
-            <div className="post-me">
+            <div className='post-me'>
                 {owner.profileImage !== "" ? (
-                    <a href={`/profile/${owner.username}`}><img src={owner.profileImage} /></a>
+                    <a href={`/profile/${owner.username}`}>
+                        <img src={owner.profileImage} />
+                    </a>
                 ) : (
-                    <a href={`/profile/${owner.username}`}><img src={MyPhoto} /></a>
+                    <a href={`/profile/${owner.username}`}>
+                        <img src={MyPhoto} />
+                    </a>
                 )}
             </div>
 
-            <div class="post-body ">
+            <div class='post-body '>
                 <h6>
-                    <a href={`/profile/${owner.username}`}>{owner.username}</a> . {minsAgo(currentDate)}
+                    <a href={`/profile/${owner.username}`}>{owner.username}</a>{" "}
+                    . {minsAgo(currentDate)}
                 </h6>
-                <div className="question">{question}</div>
+                <div className='question'>{question}</div>
 
                 {imageLink ? (
-                    <img src={imageLink} alt="bg-img" className="post-img" />
+                    <img src={imageLink} alt='bg-img' className='post-img' />
                 ) : null}
 
-                <span className="bottom-bar">
+                <span className='bottom-bar'>
                     {like ? (
                         <span>
                             <span
@@ -201,9 +206,8 @@ const Post = ({
                                     margin: "1rem",
                                     color: "red",
                                 }}
-                                class="fas fa-heart "
-                                onClick={editLike}
-                            ></span>
+                                class='fas fa-heart '
+                                onClick={editLike}></span>
                             <span>{likedArray.length}</span>
                         </span>
                     ) : (
@@ -217,8 +221,7 @@ const Post = ({
                                     margin: "1rem",
                                 }}
                                 onClick={editLike}
-                                class="far fa-heart "
-                            ></span>
+                                class='far fa-heart '></span>
                             <span>{likedArray.length}</span>
                         </span>
                     )}
@@ -231,9 +234,8 @@ const Post = ({
                                 margin: "1rem",
                                 color: "grey",
                             }}
-                            class="fas fa-bookmark"
-                            onClick={editBookmark}
-                        ></span>
+                            class='fas fa-bookmark'
+                            onClick={editBookmark}></span>
                     ) : (
                         <div
                             style={{
@@ -242,9 +244,8 @@ const Post = ({
                                 backgroundColor: "#dbe0ee",
                                 margin: "1rem",
                             }}
-                            class="far fa-bookmark "
-                            onClick={editBookmark}
-                        ></div>
+                            class='far fa-bookmark '
+                            onClick={editBookmark}></div>
                     )}
                     {open ? (
                         <div
@@ -259,8 +260,7 @@ const Post = ({
                                 margin: "1rem",
                                 color: "grey",
                             }}
-                            class="fas fa-comment "
-                        ></div>
+                            class='fas fa-comment '></div>
                     ) : (
                         <div
                             onClick={() => {
@@ -272,8 +272,7 @@ const Post = ({
                                 backgroundColor: "#dbe0ee",
                                 margin: "1rem",
                             }}
-                            class="far fa-comment "
-                        ></div>
+                            class='far fa-comment '></div>
                     )}
 
                     {auth.user ? (
@@ -288,8 +287,7 @@ const Post = ({
                                         margin: "1rem",
                                         color: "grey",
                                     }}
-                                    class="fas fa-trash "
-                                ></div>
+                                    class='fas fa-trash '></div>
                             ) : null
                         ) : (
                             <div
@@ -301,8 +299,7 @@ const Post = ({
                                     margin: "1rem",
                                     color: "grey",
                                 }}
-                                class="fas fa-trash "
-                            ></div>
+                                class='fas fa-trash '></div>
                         )
                     ) : (
                         "user not updated"
