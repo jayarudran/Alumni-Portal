@@ -14,7 +14,7 @@ import MyPhoto from '../../images/me.jpg';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 
-const Profile = () => {
+const Profile = (props) => {
     const auth = useAuth();
     const profileFileRef = useRef(null);
     const history = useHistory();
@@ -46,6 +46,7 @@ const Profile = () => {
 
     const handleUploadImage = async (e) => {
         e.preventDefault();
+        props.Progress(0);
         const profileImage = await handleSaveDocument(
             'profile',
             Date.now().toString(),
@@ -73,10 +74,12 @@ const Profile = () => {
                 console.log(auth.user);
             })
             .catch((err) => console.log(err));
+        props.Progress(100);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        props.Progress(0);
         console.log('submit edit profile');
         axios({
             method: 'put',
@@ -107,7 +110,7 @@ const Profile = () => {
                 console.log(auth.user);
             })
             .catch((err) => console.log(err));
-
+        props.Progress(100);
         window.location.reload();
     };
 
