@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
-import Logo from "../images/Logo.png";
+// import Logo from "../images/Logo.png";    Not Used yet
 import { TOKEN_ID } from "../utils/constants";
 const Nav = () => {
     const auth = useAuth();
@@ -69,6 +69,7 @@ const Nav = () => {
                 <span className='fas fa-sign-out-alt'></span>
                 <span className='nav-label'>Logout</span>
             </div>
+
             {/* <div className="nav-link">
                 <a href="https://primusschool.edu.in/" target="_blank">
                     <img src={Logo} class="logo"></img>

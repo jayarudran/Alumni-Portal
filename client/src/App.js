@@ -1,5 +1,4 @@
 import React, { useEffect, useContext, useState } from "react";
-import { Redirect, useHistory } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Community from "./components/pages/Community";
@@ -24,7 +23,7 @@ import VerifyAgain from "./components/auth/VerifyAgain";
 
 const App = () => {
     const auth = useAuth();
-    const history = useHistory();
+    // const history = useHistory();   Can be operated from Navigation Bar
     const [isloggedIn, setIsLoggedIn] = useState(false);
 
     return (
