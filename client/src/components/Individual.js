@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 import { TOKEN_ID } from "../utils/constants";
-const Individual = ({ user, DeleteUser }) => {
+const Individual = ({ user, DeleteUser }, props) => {
     const [verified, setVerified] = useState(user.isVerifiedByAdmin);
     const auth = useAuth();
 
     const BlockUser = (userid) => {
+        props.Progress(0);
         axios({
             method: "post",
             url: "/api/admin/blockuser",
@@ -29,9 +30,11 @@ const Individual = ({ user, DeleteUser }) => {
                 }
             })
             .catch((err) => console.log(err));
+        props.Progress(100);
     };
 
     const VerifyUser = (userid) => {
+        props.Progress(0);
         axios({
             method: "post",
             url: "/api/admin/verifyuser",
@@ -52,6 +55,7 @@ const Individual = ({ user, DeleteUser }) => {
                 }
             })
             .catch((err) => console.log(err));
+            props.Progress(100);
     };
     return (
         <div className="verify1">

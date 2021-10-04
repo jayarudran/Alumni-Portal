@@ -14,6 +14,7 @@ const VerifyUsers = () => {
     }, []);
 
     const GetAll = () => {
+        props.Progress(0);
         axios({
             method: "get",
             url: "/api/users/getall",
@@ -32,6 +33,8 @@ const VerifyUsers = () => {
                 }
             })
             .catch((err) => console.log(err));
+        props.Progress(100);
+
     };
 
     useEffect(() => {
@@ -51,6 +54,7 @@ const VerifyUsers = () => {
     }, [searchItem]);
 
     const DeleteUser = (userid) => {
+        props.Progress(0);
         axios({
             method: "post",
             url: "/api/admin/deleteuser",
@@ -70,6 +74,8 @@ const VerifyUsers = () => {
                 }
             })
             .catch((err) => console.log(err));
+        props.Progress(100);
+
     };
 
     return (
