@@ -15,7 +15,6 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     // const [err, setErr] = useState("");
     const handleFormSubmit = (e) => {
-        props.Progress(0);
         e.preventDefault();
         if (fullName == "") {
             toast.error("Please Enter your Name");
@@ -82,7 +81,6 @@ const Register = () => {
             })
             .catch((err) => console.log(err));
         console.log("in submit");
-        props.Progress(100);
     };
 
     return (
