@@ -10,6 +10,7 @@ module.exports = async (req, res) => {
             imageLink,
             question: question,
             owner: userid,
+            currentDate:Date.now(),
             isAdmin: false,
         });
         console.log("newpost! :non admin");

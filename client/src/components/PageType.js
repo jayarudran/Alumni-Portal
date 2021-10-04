@@ -79,6 +79,8 @@ const PageType = ({ pageType, userid }) => {
       console.log(posts[i]);
       newposts.push(posts[i]);
     }
+    console.log("IN ADD POST")
+    console.log(newposts)
     setPosts(newposts);
   };
   const deletePost = (x) => {
@@ -130,6 +132,7 @@ const PageType = ({ pageType, userid }) => {
             owner={post.owner}
             createdAt={post.createdAt}
             currentDate={post.currentDate}
+            postedAgo={post.postedAgo}
           />
         ))}
       </div>
