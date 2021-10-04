@@ -49,12 +49,16 @@ const CreatePost = ({
                 if (result.data.success) {
                     setLoading(false);
                     console.log(result.data);
+                    console.log("resultttt")
+                    console.log(result.data.data)
                     addPost(result.data.data);
                 } else {
                     console.log("oops");
                 }
             })
             .catch((err) => console.log(err));
+        
+        // window.location.reload();
         console.log("in handlesubmit");
     };
 
