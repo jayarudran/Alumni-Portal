@@ -7,7 +7,6 @@ const VerifyAgain = () => {
     const [email, setEmail] = useState("");
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.Progress(0);
         axios({
             method: "post",
             url: `/api/auth/reverify`,
@@ -17,7 +16,6 @@ const VerifyAgain = () => {
         }).then((result) => {
             toast.error(result.data.data);
         });
-        props.Progress(100);
     };
 
     return (
