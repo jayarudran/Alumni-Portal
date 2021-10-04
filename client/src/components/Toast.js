@@ -1,12 +1,14 @@
 import toast, { Toaster } from "react-hot-toast";
 
-const notify = () => toast("Here is your toast.");
-
-const Toast = () => {
-    return (
-        <div>
-            <button onClick={notify}>Make me a toast</button>
-            <Toaster />
-        </div>
-    );
+const Toast = ({ message }) => {
+  const notify = () => toast(message);
+  return (
+    <div>
+      {/* <button onClick={notify}>{message}</button> */}
+      <h4 style={{ display: "none" }}>{notify()}</h4>
+      <Toaster />
+    </div>
+  );
 };
+
+export default Toast;
