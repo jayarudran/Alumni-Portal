@@ -25,7 +25,8 @@ import VerifyAgain from "./components/auth/VerifyAgain";
 const App = () => {
     const auth = useAuth();
     const [isloggedIn, setIsLoggedIn] = useState(false);
-
+    const [progress, setProgress] = useState(0);
+    
     const Progress = (progress) => {
         setProgress(progress);
     }

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useParams, useHistory } from "react-router-dom";
 
-const ResetPassword = () => {
+const ResetPassword = (props) => {
     const [err, setErr] = useState("");
     const [pass, setPass] = useState("");
     const [confirmPass, setConfirmPass] = useState("");
@@ -16,7 +16,7 @@ const ResetPassword = () => {
         props.Progress(0);
         console.log("tokennnn:");
         console.log(token);
-        if (pass == "") {
+        if (pass === "") {
             setErr("Please Enter your Password");
             return;
         }

@@ -4,7 +4,7 @@ import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import toast, { Toaster } from "react-hot-toast";
 
-const Register = () => {
+const Register = (props) => {
     const auth = useAuth();
 
     const history = useHistory();
@@ -126,7 +126,7 @@ const Register = () => {
                         </div>
                     </div>
                     <div className='right-container'>
-                        <h2>Register</h2>
+                        <h2 style={{textAlign: 'center'}}>Register</h2>
                         <form onSubmit={handleFormSubmit}>
                             <div>
                                 <input

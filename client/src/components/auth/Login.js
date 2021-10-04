@@ -3,7 +3,8 @@ import { Redirect, useHistory } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import toast, { Toaster } from "react-hot-toast";
-const Login = () => {
+
+const Login = (props) => {
     const auth = useAuth();
     const history = useHistory();
 
@@ -88,7 +89,7 @@ const Login = () => {
                     </div>
                     <div className='right-container'>
                         <form onSubmit={handleFormSubmit}>
-                            <h2>Login</h2>
+                            <h2 style={{textAlign: 'center'}}>Login</h2>
                             <div>
                                 <input
                                     placeholder='Enter email'

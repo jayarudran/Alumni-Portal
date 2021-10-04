@@ -412,7 +412,7 @@ const Community = () => {
                     </center>
 
                     <div>
-                        {filteredArray.length == 0
+                        {filteredArray.length === 0
                             ? users.map((x) => <UserCard user={x} />)
                             : filteredArray.map((x) => <UserCard user={x} />)}
                     </div>

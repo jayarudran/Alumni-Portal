@@ -137,7 +137,7 @@ const Profile = (props) => {
                 <div className="profile">
                     <div className="profile-top">
                         <div className="profile-left">
-                            {auth.user.profileImage != '' ? (
+                            {auth.user.profileImage !== '' ? (
                                 <img
                                     src={auth.user.profileImage}
                                     className="img-user"
