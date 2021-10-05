@@ -17,7 +17,7 @@ import RandomPost from "./components/pages/RandomPost";
 import PrivateRoute from "./components/PrivateRoute";
 import Post from "./components/Post";
 import { useAuth } from "./context/AuthContext";
-import LoadingBar from 'react-top-loading-bar'
+import LoadingBar from 'react-top-loading-bar';
 
 import Verified from "./components/Verified";
 import VerifyAgain from "./components/auth/VerifyAgain";
