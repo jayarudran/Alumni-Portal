@@ -11,6 +11,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
     // const [err, setErr] = useState("");
     const handleFormSubmit = async (e) => {
+        props.Progress(0);
         e.preventDefault();
         if (email === "") {
             // setErr("Email Field empty");
@@ -41,6 +42,7 @@ const Login = () => {
             }
         });
         console.log("in submit");
+        props.Progress(100);
     };
 
     return (
