@@ -3,7 +3,7 @@ import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 import Individual from "./Individual";
 import { TOKEN_ID } from "../utils/constants";
-const VerifyUsers = (props) => {
+const VerifyUsers = () => {
     const auth = useAuth();
     const [users, setUsers] = useState([]);
     const [filterusers, setFilterUsers] = useState([]);
@@ -14,7 +14,6 @@ const VerifyUsers = (props) => {
     }, []);
 
     const GetAll = () => {
-        props.Progress(0);
         axios({
             method: "get",
             url: "/api/users/getall",
@@ -33,8 +32,6 @@ const VerifyUsers = (props) => {
                 }
             })
             .catch((err) => console.log(err));
-        props.Progress(100);
-
     };
 
     useEffect(() => {
@@ -54,7 +51,6 @@ const VerifyUsers = (props) => {
     }, [searchItem]);
 
     const DeleteUser = (userid) => {
-        props.Progress(0);
         axios({
             method: "post",
             url: "/api/admin/deleteuser",
@@ -74,8 +70,6 @@ const VerifyUsers = (props) => {
                 }
             })
             .catch((err) => console.log(err));
-        props.Progress(100);
-
     };
 
     return (
