@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
-const VerifyAgain = () => {
+const VerifyAgain = (props) => {
     const [err, setErr] = useState("");
     const [email, setEmail] = useState("");
     const handleSubmit = (e) => {

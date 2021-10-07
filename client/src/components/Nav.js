@@ -11,6 +11,21 @@ const Nav = () => {
     const [username, setUsername] = useState("");
     let [user, setUser] = useState(null);
 
+    const [mode, setMode] = useState('light');
+
+    const toggleMode = () => {
+        if (mode === "light") {
+            setMode("dark");
+            document.body.style.backgroundColor = "rgb(56, 56, 56)";
+            document.body.style.color = "white";
+        }
+        else {
+            setMode("light")
+            document.body.style.backgroundColor = "transparent";
+            document.body.style.color = "black";
+        }
+    }
+
     useEffect(() => {
         axios({
             method: "get",
@@ -66,16 +81,24 @@ const Nav = () => {
                 ) : null
             ) : null}
 
-            <div className={`nav-link ${location.pathname === "/logout" ? "active" : ""}`} onClick={auth.logout}>
+            <div class={`nav-link`} onClick={auth.logout}>
                 <span className='fas fa-sign-out-alt'></span>
                 <span className='nav-label'>Logout</span>
             </div>
 
             {/* <div className="nav-link">
                 <a href="https://primusschool.edu.in/" target="_blank">
-                    <img src={Logo} class="logo"></img>
+                    <img src={Logo} className="logo"></img>
                 </a>
             </div> */}
+
+            <div>
+                <label className="switch">
+                    <input type="checkbox" onClick={toggleMode}/>
+                    <span className="slider round"></span>
+                </label>
+            </div>
+
         </div>
     );
 };

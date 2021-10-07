@@ -3,7 +3,7 @@ import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 import Individual from "./Individual";
 import { TOKEN_ID } from "../utils/constants";
-const VerifyUsers = () => {
+const VerifyUsers = (props) => {
     const auth = useAuth();
     const [users, setUsers] = useState([]);
     const [filterusers, setFilterUsers] = useState([]);

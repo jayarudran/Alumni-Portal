@@ -44,7 +44,7 @@ const OtherProfile = () => {
                 <div className="profile">
                     <div className="profile-top">
                         <div className="profile-left">
-                            {otherUser.profileImage != "" ? (
+                            {otherUser.profileImage !== "" ? (
                                 <img
                                     src={otherUser.profileImage}
                                     className="img-user"

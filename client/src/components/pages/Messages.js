@@ -97,7 +97,7 @@ const Messages = () => {
         let arr = [];
         for (let i = 0; i < users.length; i++) {
             let username = users[i].username.toLowerCase();
-            if (e.target.value != "" && username.search(e.target.value) > -1) {
+            if (e.target.value !== "" && username.search(e.target.value) > -1) {
                 // console.log(username);
                 arr.push(users[i]);
             }
@@ -150,7 +150,7 @@ const Messages = () => {
                                       })
                                           .then((result) => {
                                               if (result.data.success) {
-                                                  if (result.data.status == 1)
+                                                  if (result.data.status === 1)
                                                       setConversations([
                                                           ...conversations,
                                                           result.data.data,
@@ -192,7 +192,7 @@ const Messages = () => {
                                               //   );
                                               //   console.log(result.data);
                                               if (result.data.success) {
-                                                  if (result.data.status == 1)
+                                                  if (result.data.status === 1)
                                                       setConversations([
                                                           ...conversations,
                                                           result.data.data,
