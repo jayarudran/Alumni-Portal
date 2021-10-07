@@ -532,7 +532,7 @@ button:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 1rem;
+  margin: 0.5em 0;
 }
 
 .comment .comment-left {
@@ -571,6 +571,10 @@ button:focus {
   display: flex;
 }
 
+.create-comment .left-image {
+  margin-right: 0.75em;
+}
+
 .create-comment .left-image img {
   position: relative;
   top: 0;
@@ -580,6 +584,10 @@ button:focus {
   height: 2rem;
 }
 
+.create-comment .right-input {
+  margin-bottom: 0.75em;
+}
+
 .create-comment .right-input button {
   background-color: #fec737;
 }
@@ -587,6 +595,13 @@ button:focus {
 .create-comment .right-input form {
   position: relative;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .post {
@@ -679,10 +694,37 @@ button:focus {
 
 .react-responsive-modal-modal .modal .modal-left {
   padding: 1rem;
+  border-right: grey 2px solid;
+  padding: 1rem;
   word-wrap: break-word;
   white-space: pre-wrap;
   word-break: break-word;
-  width: 30%;
+}
+
+.react-responsive-modal-modal .modal .modal-left .modal-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1em;
+}
+
+.react-responsive-modal-modal .modal .modal-left .creator-name {
+  margin-left: 0.5em;
+  font-weight: bold;
+}
+
+.react-responsive-modal-modal .modal .modal-left .post-container {
+  margin-right: 1em;
+}
+
+.react-responsive-modal-modal .modal .modal-left .post-image {
+  border-radius: 0%;
+  border: none;
+  height: 6rem;
+  width: 6rem;
 }
 
 .react-responsive-modal-modal .modal .modal-left img {
@@ -875,6 +917,7 @@ button:focus {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    padding: 0.5em 0.5em;
   }
   .create-comment .left-image img {
     position: relative;
@@ -884,16 +927,19 @@ button:focus {
     width: 2rem;
     height: 2rem;
   }
-  .create-comment form {
-    position: relative;
-    width: 100%;
-  }
   .create-comment .right-input button {
     background-color: #fec737;
   }
   .create-comment .right-input form {
     position: relative;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
   }
   .post {
     background-color: #dbe0ee;

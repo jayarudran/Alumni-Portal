@@ -1,13 +1,13 @@
-import axios from "axios";
-import React, { useContext, useState, useEffect } from "react";
-import { useAuth } from "../context/AuthContext";
-import Comments from "./Comments";
-import { TOKEN_ID } from "../utils/constants";
-import "react-responsive-modal/styles.css";
-import { Modal } from "react-responsive-modal";
-import { useParams, useHistory } from "react-router-dom";
-import MyPhoto from "../images/me.jpg";
-import { minsAgo } from "../utils/utilities";
+import axios from 'axios';
+import React, { useContext, useState, useEffect } from 'react';
+import { useAuth } from '../context/AuthContext';
+import Comments from './Comments';
+import { TOKEN_ID } from '../utils/constants';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
+import { useParams, useHistory } from 'react-router-dom';
+import MyPhoto from '../images/me.jpg';
+import { minsAgo } from '../utils/utilities';
 
 const Post = ({
     imageLink,
@@ -22,6 +22,7 @@ const Post = ({
     owner,
     createdAt,
     currentDate,
+    postedAgo,
 }) => {
     const history = useHistory();
     const auth = useAuth();
@@ -66,16 +67,16 @@ const Post = ({
 
     //toggles bookmark state
     const editBookmark = () => {
-        console.log("inside edit");
+        console.log('inside edit');
         axios({
-            method: "post",
-            url: "/api/home/editbookmark",
+            method: 'post',
+            url: '/api/home/editbookmark',
             data: {
                 postid: post_id,
             },
             headers: {
-                "Content-type": "application/json",
-                "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
+                'Content-type': 'application/json',
+                'x-auth-token': `${localStorage.getItem(TOKEN_ID)}`,
             },
         })
             .then((result) => {
@@ -95,16 +96,16 @@ const Post = ({
 
     //toggles like state
     const editLike = () => {
-        console.log("inside edit");
+        console.log('inside edit');
         axios({
-            method: "post",
-            url: "/api/home/editlike",
+            method: 'post',
+            url: '/api/home/editlike',
             data: {
                 postid: post_id,
             },
             headers: {
-                "Content-type": "application/json",
-                "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
+                'Content-type': 'application/json',
+                'x-auth-token': `${localStorage.getItem(TOKEN_ID)}`,
             },
         })
             .then((result) => {
@@ -124,45 +125,59 @@ const Post = ({
 
     const handleDelete = () => {
         axios({
-            method: "delete",
-            url: "/api/home/deletepost",
+            method: 'delete',
+            url: '/api/home/deletepost',
             data: { postid: post_id },
             headers: {
-                "Content-type": "application/json",
-                "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
+                'Content-type': 'application/json',
+                'x-auth-token': `${localStorage.getItem(TOKEN_ID)}`,
             },
         }).then((result) => {
             console.log(result.data);
             if (result.data.success) {
-                console.log("deleted");
+                console.log('deleted');
                 deletePost(post_id);
             } else {
-                console.log("cannot del post");
+                console.log('cannot del post');
             }
         });
     };
 
     return (
-        <div class='post'>
+        <div class="post">
             <Modal
                 open={open}
                 onClose={() => {
                     setOpen(false);
-                }}>
-                <div class='modal'>
-                    <div className='modal-left'>
-                        <div className='creator-img'>
-                            {console.log(owner.profileImage)}
-                            {owner.profileImage !== "" ? (
-                                <img src={owner.profileImage} />
-                            ) : (
-                                <img src={MyPhoto} />
-                            )}
+                }}
+            >
+                <div class="modal">
+                    <div className="modal-left">
+                        <div className="modal-header">
+                            <div className="creator-img">
+                                {console.log(owner.profileImage)}
+                                {owner.profileImage !== '' ? (
+                                    <img src={owner.profileImage} />
+                                ) : (
+                                    <img src={MyPhoto} />
+                                )}
+                            </div>
+                            <div className="creator-name">{owner.username}</div>
                         </div>
-                        {question}
-                        <img src={imageLink}></img>
+                        <div className="post-container">
+                            {/* show only when imageLink is present */}
+                            {imageLink && (
+                                <img
+                                    src={imageLink}
+                                    className="post-image"
+                                ></img>
+                            )}
+
+                            {/* Caption */}
+                            <div className="question">{question}</div>
+                        </div>
                     </div>
-                    <div className='modal-right'>
+                    <div className="modal-right">
                         <Comments
                             post_id={post_id}
                             email={email}
@@ -171,9 +186,8 @@ const Post = ({
                     </div>
                 </div>
             </Modal>
-
-            <div className='post-me'>
-                {owner.profileImage !== "" ? (
+            <div className="post-me">
+                {owner.profileImage !== '' ? (
                     <a href={`/profile/${owner.username}`}>
                         <img src={owner.profileImage} />
                     </a>
@@ -184,68 +198,72 @@ const Post = ({
                 )}
             </div>
 
-            <div class='post-body '>
+            <div class="post-body ">
                 <h6>
-                    <a href={`/profile/${owner.username}`}>{owner.username}</a>{" "}
-                    . {minsAgo(currentDate)}
+                    <a href={`/profile/${owner.username}`}>{owner.username}</a>{' '}
+                    . {postedAgo ? postedAgo : 'Just Now'}
                 </h6>
-                <div className='question'>{question}</div>
+                <div className="question">{question}</div>
 
                 {imageLink ? (
-                    <img src={imageLink} alt='bg-img' className='post-img' />
+                    <img src={imageLink} alt="bg-img" className="post-img" />
                 ) : null}
 
-                <span className='bottom-bar'>
+                <span className="bottom-bar">
                     {like ? (
                         <span>
                             <span
                                 style={{
-                                    textDecoration: "none",
-                                    border: "0",
-                                    backgroundColor: "#dbe0ee",
-                                    margin: "1rem",
-                                    color: "red",
+                                    textDecoration: 'none',
+                                    border: '0',
+                                    backgroundColor: '#dbe0ee',
+                                    margin: '1rem',
+                                    color: 'red',
                                 }}
-                                class='fas fa-heart '
-                                onClick={editLike}></span>
+                                class="fas fa-heart "
+                                onClick={editLike}
+                            ></span>
                             <span>{likedArray.length}</span>
                         </span>
                     ) : (
                         <span>
                             <span
                                 style={{
-                                    textDecoration: "none",
-                                    border: "0",
-                                    backgroundColor: "#dbe0ee",
-                                    className: "heart",
-                                    margin: "1rem",
+                                    textDecoration: 'none',
+                                    border: '0',
+                                    backgroundColor: '#dbe0ee',
+                                    className: 'heart',
+                                    margin: '1rem',
                                 }}
                                 onClick={editLike}
-                                class='far fa-heart '></span>
+                                class="far fa-heart "
+                            ></span>
                             <span>{likedArray.length}</span>
                         </span>
                     )}
                     {bookmark ? (
                         <span
                             style={{
-                                textDecoration: "none",
-                                border: "0",
-                                backgroundColor: "#dbe0ee",
-                                margin: "1rem",
-                                color: "grey",
+                                textDecoration: 'none',
+                                border: '0',
+                                backgroundColor: '#dbe0ee',
+                                margin: '1rem',
+                                color: 'grey',
                             }}
-                            class='fas fa-bookmark'
-                            onClick={editBookmark}></span>
+                            class="fas fa-bookmark"
+                            onClick={editBookmark}
+                        ></span>
                     ) : (
                         <div
                             style={{
-                                textDecoration: "none",
-                                border: "0",
-                                backgroundColor: "#dbe0ee",
-                                margin: "1rem",
+                                textDecoration: 'none',
+                                border: '0',
+                                backgroundColor: '#dbe0ee',
+                                margin: '1rem',
                             }}
-                            class='far fa-bookmark '
-                            onClick={editBookmark}></div>
+                            class="far fa-bookmark "
+                            onClick={editBookmark}
+                        ></div>
                     )}
                     {open ? (
                         <div
@@ -254,25 +272,27 @@ const Post = ({
                                 history.push(`/post/${post_id}`);
                             }}
                             style={{
-                                textDecoration: "none",
-                                border: "0",
-                                backgroundColor: "#F8F9FA",
-                                margin: "1rem",
-                                color: "grey",
+                                textDecoration: 'none',
+                                border: '0',
+                                backgroundColor: '#F8F9FA',
+                                margin: '1rem',
+                                color: 'grey',
                             }}
-                            class='fas fa-comment '></div>
+                            class="fas fa-comment "
+                        ></div>
                     ) : (
                         <div
                             onClick={() => {
                                 setOpen(true);
                             }}
                             style={{
-                                textDecoration: "none",
-                                border: "0",
-                                backgroundColor: "#dbe0ee",
-                                margin: "1rem",
+                                textDecoration: 'none',
+                                border: '0',
+                                backgroundColor: '#dbe0ee',
+                                margin: '1rem',
                             }}
-                            class='far fa-comment '></div>
+                            class="far fa-comment "
+                        ></div>
                     )}
 
                     {auth.user ? (
@@ -281,28 +301,30 @@ const Post = ({
                                 <div
                                     onClick={handleDelete}
                                     style={{
-                                        textDecoration: "none",
-                                        border: "0",
-                                        backgroundColor: "#dbe0ee",
-                                        margin: "1rem",
-                                        color: "grey",
+                                        textDecoration: 'none',
+                                        border: '0',
+                                        backgroundColor: '#dbe0ee',
+                                        margin: '1rem',
+                                        color: 'grey',
                                     }}
-                                    class='fas fa-trash '></div>
+                                    class="fas fa-trash "
+                                ></div>
                             ) : null
                         ) : (
                             <div
                                 onClick={handleDelete}
                                 style={{
-                                    textDecoration: "none",
-                                    border: "0",
-                                    backgroundColor: "#dbe0ee",
-                                    margin: "1rem",
-                                    color: "grey",
+                                    textDecoration: 'none',
+                                    border: '0',
+                                    backgroundColor: '#dbe0ee',
+                                    margin: '1rem',
+                                    color: 'grey',
                                 }}
-                                class='fas fa-trash '></div>
+                                class="fas fa-trash "
+                            ></div>
                         )
                     ) : (
-                        "user not updated"
+                        'user not updated'
                     )}
                 </span>
             </div>
