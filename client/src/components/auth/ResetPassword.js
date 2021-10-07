@@ -13,6 +13,7 @@ const ResetPassword = () => {
     const handleSubmit = (e) => {
         //send email in body and return err or send mail if successfull call
         e.preventDefault();
+        props.Progress(0);
         console.log("tokennnn:");
         console.log(token);
         if (pass == "") {
@@ -46,6 +47,7 @@ const ResetPassword = () => {
         } else {
             setErr("Conform Password and password do not match");
         }
+        props.Progress(100);
     };
  
     return (
