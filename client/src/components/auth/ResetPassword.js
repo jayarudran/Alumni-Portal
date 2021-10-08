@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useParams, useHistory } from "react-router-dom";
 
-const ResetPassword = (props) => {
+const ResetPassword = () => {
     const [err, setErr] = useState("");
     const [pass, setPass] = useState("");
     const [confirmPass, setConfirmPass] = useState("");
@@ -13,7 +13,6 @@ const ResetPassword = (props) => {
     const handleSubmit = (e) => {
         //send email in body and return err or send mail if successfull call
         e.preventDefault();
-        props.Progress(0);
         console.log("tokennnn:");
         console.log(token);
         if (pass === "") {
@@ -47,7 +46,6 @@ const ResetPassword = (props) => {
         } else {
             setErr("Conform Password and password do not match");
         }
-        props.Progress(100);
     };
  
     return (
