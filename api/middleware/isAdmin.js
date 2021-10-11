@@ -1,22 +1,8 @@
-const jwt = require("jsonwebtoken");
-const User = require("../models/User");
+const num1 = 5;
+const num2 = 3;
 
-module.exports = async function (req, res, next) {
-    try {
-        let user = await User.findOne({ _id: req.user.id });
-        if (user) {
-            if (user.isAdmin) {
-                next();
-            } else {
-                return res.send({ success: false, data: "not admin" });
-            }
-        } else {
-            return res.send({ success: false, data: "not registered" });
-        }
-    } catch (err) {
-        res.status(401).json({
-            success: false,
-            data: "Server Error",
-        });
-    }
-};
+// add two numbers
+const sum = num1 + num2;
+
+// display the sum
+console.log('The sum of ' + num1 + ' and ' + num2 + ' is: ' + sum);
